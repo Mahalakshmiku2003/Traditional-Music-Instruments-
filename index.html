@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Music Instruments of India</title>
+    <meta name="description" content="Explore the rich heritage of classical Indian musical instruments including Sitar, Tabla, Veena, and more.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --maroon: #8B1A1A;
+            --saffron: #FF9933;
+            --cream: #FFF8F0;
+            --gold: #D4A017;
+            --dark: #1A1A1A;
+            --muted: #666666;
+            --white: #FFFFFF;
+            
+            /* Category Colors */
+            --string-bg: #FFF3CD; --string-text: #856404;
+            --wind-bg: #D1ECF1; --wind-text: #0C5460;
+            --percussion-bg: #FFE5D0; --percussion-text: #8B3A00;
+            --keyboard-bg: #E8D5F5; --keyboard-text: #5B2C8D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--maroon), var(--saffron));
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--white);
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Filter & Search Bar */
+        .controls {
+            max-width: 1200px;
+            margin: -30px auto 20px;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold);
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+        }
+
+        .filters::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+
+        .filter-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--muted);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .filter-btn.active {
+            background: var(--maroon);
+            color: var(--white);
+        }
+
+        .counter {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: -10px;
+        }
+
+        /* Grid Section */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid #eee;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img-container {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #f9f9f9;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .card-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--maroon);
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-string { background: var(--string-bg); color: var(--string-text); }
+        .badge-wind { background: var(--wind-bg); color: var(--wind-text); }
+        .badge-percussion { background: var(--percussion-bg); color: var(--percussion-text); }
+        .badge-keyboard { background: var(--keyboard-bg); color: var(--keyboard-text); }
+
+        .card-region {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #444;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Empty State */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--gold);
+        }
+
+        .empty-state .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .empty-state p {
+            color: var(--muted);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+
+        .modal {
+            background: var(--white);
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 16px;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            animation: modalFadeIn 0.4s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #333;
+            z-index: 10;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--maroon);
+        }
+
+        .modal-img-side {
+            width: 40%;
+            background: #f4f4f4;
+        }
+
+        .modal-img-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-content-side {
+            width: 60%;
+            padding: 40px;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-title-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            margin-right: 20px;
+        }
+
+        .modal-title {
+            font-size: 2.2rem;
+            color: var(--maroon);
+        }
+
+        .modal-meta {
+            margin-bottom: 25px;
+        }
+
+        .modal-detail-item {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .modal-detail-item strong {
+            color: var(--maroon);
+            margin-right: 5px;
+        }
+
+        .modal-description {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+            color: #333;
+        }
+
+        .audio-player-container {
+            margin-top: auto;
+            background: var(--cream);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        audio {
+            width: 100%;
+            height: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        footer .credits {
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .modal {
+                flex-direction: column;
+                max-height: 95vh;
+            }
+            .modal-img-side {
+                width: 100%;
+                height: 250px;
+            }
+            .modal-content-side {
+                width: 100%;
+                padding: 25px;
+            }
+            .modal-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Traditional Music Instruments of India</h1>
+        <p>Explore the rich heritage of classical Indian music</p>
+    </header>
+
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search instruments by name...">
+        </div>
+        <div class="filters" id="filterTabs">
+            <button class="filter-btn active" data-category="All">All</button>
+            <button class="filter-btn" data-category="String">String</button>
+            <button class="filter-btn" data-category="Wind">Wind</button>
+            <button class="filter-btn" data-category="Percussion">Percussion</button>
+            <button class="filter-btn" data-category="Keyboard">Keyboard</button>
+        </div>
+        <div class="counter" id="instrumentCounter">Showing 12 instruments</div>
+    </div>
+
+    <main class="container">
+        <div class="grid" id="instrumentGrid">
+            <!-- Cards will be injected by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Modal Structure -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="instrumentModal">
+            <span class="modal-close" id="closeModal">&times;</span>
+            <div class="modal-img-side">
+                <img id="modalImage" src="" alt="Instrument Name">
+            </div>
+            <div class="modal-content-side">
+                <div class="modal-title-row">
+                    <h2 class="modal-title" id="modalName">Sitar</h2>
+                    <span id="modalBadge" class="badge">String</span>
+                </div>
+                <div class="modal-meta">
+                    <div class="modal-detail-item"><strong>Region:</strong> <span id="modalRegion">North India</span></div>
+                    <div class="modal-detail-item"><strong>Material:</strong> <span id="modalMaterial">Teak wood, gourd, steel strings</span></div>
+                    <div class="modal-detail-item"><strong>Playing Style:</strong> <span id="modalStyle">Plucked with a plectrum (Mizrab)</span></div>
+                </div>
+                <div class="modal-description" id="modalDesc">
+                    The Sitar is synonymous with Indian classical music worldwide. It features a long neck and a gourd resonator, known for its intricate 'meend' (gliding notes) and 'jhala' (fast rhythmic patterns). Historically, it was refined in the Mughal courts and popularized globally by Pandit Ravi Shankar.
+                </div>
+                <div class="audio-player-container">
+                    <audio id="audioPlayer" controls>
+                        <source src="" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>A tribute to India's classical music heritage</p>
+        <div class="credits">Curated by Traditional Arts Archive &copy; 2026</div>
+    </footer>
+
+    <script>
+        const instruments = [
+            {
+                name: "Sitar",
+                category: "String",
+                region: "North India",
+                image: "assets/images/sitar.jpg",
+                audio: "assets/audio/sitar.mp3",
+                shortDesc: "The most iconic Indian string instrument with a shimmering resonance.",
+                fullDesc: "The Sitar is synonymous with Indian classical music worldwide. It features a long neck and a gourd resonator, known for its intricate 'meend' (gliding notes) and 'jhala' (fast rhythmic patterns). Historically, it was refined in the Mughal courts and popularized globally by Pandit Ravi Shankar.",
+                material: "Teak wood neck, seasoned gourd (tumba), steel and brass strings.",
+                playingStyle: "Played by plucking the strings with a wire plectrum called a 'mizrab' worn on the index finger."
+            },
+            {
+                name: "Tabla",
+                category: "Percussion",
+                region: "North India",
+                image: "assets/images/tabla.jpg",
+                audio: "assets/audio/tabla.mp3",
+                shortDesc: "A pair of drums offering a vast range of pitch and tonal color.",
+                fullDesc: "The Tabla consists of two drums: the Dayan (treble) and the Bayan (bass). It is the primary percussion instrument in North Indian classical music, capable of producing complex rhythmic patterns and tonal textures. The black spot on each drum, called 'syahi', is crucial for its unique harmonic resonance.",
+                material: "Dayan made of Shisham wood; Bayan made of copper, brass, or clay. Both use leather skins.",
+                playingStyle: "Played using the fingers and palms of both hands to create diverse strokes and modulations."
+            },
+            {
+                name: "Veena",
+                category: "String",
+                region: "South India",
+                image: "assets/images/veena.jpg",
+                audio: "assets/audio/veena.mp3",
+                shortDesc: "Ancient plucked string instrument, central to Carnatic classical music.",
+                fullDesc: "The Saraswati Veena is one of the most ancient Indian instruments. It has a large body carved from a single piece of wood and two gourd resonators. It is known for its pure, resonant sound and is deeply associated with the goddess Saraswati, representing knowledge and music.",
+                material: "Jackwood body, metallic strings, and brass frets.",
+                playingStyle: "Played while sitting cross-legged, with the instrument placed on the lap. The player plucks the strings with fingers and uses a plectrum."
+            },
+            {
+                name: "Bansuri",
+                category: "Wind",
+                region: "North India",
+                image: "assets/images/bansuri.jpg",
+                audio: "assets/audio/bansuri.mp3",
+                shortDesc: "A simple side-blown bamboo flute with a soulful, haunting sound.",
+                fullDesc: "The Bansuri is a traditional transverse flute made from a single hollow shaft of bamboo. It is one of the most natural instruments, requiring only the player's breath and finger placement to produce its divine melodies. It is most famous for its association with Lord Krishna in Indian mythology.",
+                material: "Natural seasoned bamboo.",
+                playingStyle: "Played by blowing air across the embouchure hole while using the fingertips to cover several finger holes."
+            },
+            {
+                name: "Mridangam",
+                category: "Percussion",
+                region: "South India",
+                image: "assets/images/mridangam.jpg",
+                audio: "assets/audio/mridangam.mp3",
+                shortDesc: "The primary rhythmic accompaniment in Carnatic classical music.",
+                fullDesc: "The Mridangam is a barrel-shaped double-headed drum. It is considered the king of percussion in South India. The two heads are of different diameters and provide both bass and treble sounds, allowing for highly intricate rhythmic structures.",
+                material: "Jackwood body, goatskin and cowhide heads with a permanent central paste (karanai).",
+                playingStyle: "Played horizontally with both hands, striking the heads with fingers and palms."
+            },
+            {
+                name: "Shehnai",
+                category: "Wind",
+                region: "Varanasi",
+                image: "assets/images/shehnai.jpg",
+                audio: "assets/audio/shehnai.mp3",
+                shortDesc: "A double-reed oboe-like instrument heard at weddings and festivals.",
+                fullDesc: "The Shehnai is believed to bring good luck and is thus essential at Indian weddings and religious ceremonies. It has a tubular body that widens towards the end into a metal bell. Its powerful and festive sound was brought to the classical stage by the legendary Ustad Bismillah Khan.",
+                material: "Dark wood body and a brass or silver bell.",
+                playingStyle: "Played by blowing through a double reed made of pala grass or cane."
+            },
+            {
+                name: "Sarod",
+                category: "String",
+                region: "North India",
+                image: "assets/images/sarod.jpg",
+                audio: "assets/audio/sarod.mp3",
+                shortDesc: "A fretless string instrument known for its deep, introspective tone.",
+                fullDesc: "The Sarod is one of the most prominent string instruments of Hindustani music. Unlike the Sitar, it is fretless, allowing for continuous slides (meend). It has a unique belly covered in goat skin and a polished metal fingerboard that gives it a crisp, resonant attack.",
+                material: "Teak wood body, goat skin belly, and polished chrome or steel fingerboard.",
+                playingStyle: "The strings are plucked with a plectrum carved from a coconut shell (kokolo)."
+            },
+            {
+                name: "Pakhawaj",
+                category: "Percussion",
+                region: "North India",
+                image: "assets/images/pakhawaj.jpg",
+                audio: "assets/audio/pakhawaj.mp3",
+                shortDesc: "The traditional barrel drum used in the ancient Dhrupad style.",
+                fullDesc: "The Pakhawaj is a two-headed barrel drum, the direct ancestor of the Tabla. It has a deep, mellow sound and is the standard accompaniment for Dhrupad, the oldest surviving form of North Indian classical music. Its rhythmic language is powerful and majestic.",
+                material: "Hollowed block of wood, usually Bijasar or Shisham, with leather heads.",
+                playingStyle: "Played with the palms and fingers, often requiring a strong, vigorous technique."
+            },
+            {
+                name: "Nadaswaram",
+                category: "Wind",
+                region: "South India",
+                image: "assets/images/nadaswaram.jpg",
+                audio: "assets/audio/nadaswaram.mp3",
+                shortDesc: "One of the world's loudest non-brass acoustic instruments.",
+                fullDesc: "The Nadaswaram is a large, powerful wind instrument central to South Indian temple traditions and weddings. It is similar to the Shehnai but much larger and louder. It is often played in pairs, accompanied by a heavy drum called the Thavil.",
+                material: "Ebony (Aacha) wood and a large brass bell.",
+                playingStyle: "Requires intense breath control and is played by blowing into a double reed."
+            },
+            {
+                name: "Santoor",
+                category: "String",
+                region: "Kashmir",
+                image: "assets/images/santoor.jpg",
+                audio: "assets/audio/santoor.mp3",
+                shortDesc: "A trapezoidal hammered zither with a magical, shimmering sound.",
+                fullDesc: "Originally a folk instrument from the valley of Kashmir, the Santoor was adapted for Indian classical music in the 20th century. It has 72 or more strings stretched across a walnut wood frame and produces a ethereal, watery sound that is instantly recognizable.",
+                material: "Walnut or maple wood frame and steel strings.",
+                playingStyle: "Played by striking the strings with a pair of delicate, curved wooden mallets called 'kalam'."
+            },
+            {
+                name: "Harmonium",
+                category: "Keyboard",
+                region: "Pan India",
+                image: "assets/images/harmonium.jpg",
+                audio: "assets/audio/harmonium.mp3",
+                shortDesc: "A hand-pumped reed organ used in vocal and devotional music.",
+                fullDesc: "Introduced by Europeans, the Harmonium was adapted by Indians into a portable hand-pumped version. It is now the most common accompaniment for vocalists in Khayal, Thumri, and Qawwali. Its sustain and ease of use made it a staple in Indian households.",
+                material: "Wood cabinet, brass reeds, and leather bellows.",
+                playingStyle: "The player pumps air into the instrument with one hand while playing the keys with the other."
+            },
+            {
+                name: "Dhol",
+                category: "Percussion",
+                region: "Punjab",
+                image: "assets/images/dhol.jpg",
+                audio: "assets/audio/dhol.mp3",
+                shortDesc: "A high-energy double-headed drum synonymous with Bhangra.",
+                fullDesc: "The Dhol is a celebratory drum from Punjab, known for its loud, driving beats. It has two heads: a bass head (dhamma) and a treble head (thilli). It is the soul of folk dances like Bhangra and is a symbol of joy and harvest festivities.",
+                material: "Mango, Shisham, or Tali wood body with synthetic or animal hide heads.",
+                playingStyle: "Played using two sticks (dagga and tihli) while the drum is slung over the shoulder."
+            }
+        ];
+
+        // State
+        let currentFilter = "All";
+        let searchQuery = "";
+
+        // Elements
+        const grid = document.getElementById('instrumentGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterTabs = document.getElementById('filterTabs');
+        const counter = document.getElementById('instrumentCounter');
+        
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modal = document.getElementById('instrumentModal');
+        const closeModal = document.getElementById('closeModal');
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        // Render Cards
+        function renderInstruments() {
+            const filtered = instruments.filter(inst => {
+                const matchesFilter = currentFilter === "All" || inst.category === currentFilter;
+                const matchesSearch = inst.name.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            counter.textContent = `Showing ${filtered.length} instrument${filtered.length === 1 ? '' : 's'}`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">🎵</div>
+                        <h3>No instruments found</h3>
+                        <p>Try a different search or category</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(inst => `
+                <div class="card" onclick="openModal('${inst.name}')">
+                    <div class="card-img-container">
+                        <img src="${inst.image}" alt="${inst.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/400?text=${inst.name}'">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-name">${inst.name}</span>
+                            <span class="badge badge-${inst.category.toLowerCase()}">${inst.category}</span>
+                        </div>
+                        <div class="card-region">${inst.region}</div>
+                        <div class="card-desc">${inst.shortDesc}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Modal Logic
+        window.openModal = function(name) {
+            const inst = instruments.find(i => i.name === name);
+            if (!inst) return;
+
+            document.getElementById('modalName').textContent = inst.name;
+            document.getElementById('modalBadge').textContent = inst.category;
+            document.getElementById('modalBadge').className = `badge badge-${inst.category.toLowerCase()}`;
+            document.getElementById('modalRegion').textContent = inst.region;
+            document.getElementById('modalMaterial').textContent = inst.material;
+            document.getElementById('modalStyle').textContent = inst.playingStyle;
+            document.getElementById('modalDesc').textContent = inst.fullDesc;
+            document.getElementById('modalImage').src = inst.image;
+            document.getElementById('modalImage').onerror = function() {
+                this.src = `https://via.placeholder.com/600?text=${inst.name}`;
+            };
+            
+            audioPlayer.src = inst.audio;
+            modalOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        };
+
+        function closeInstrumentModal() {
+            modalOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+            
+            // Requirements: Pause and reset audio
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            audioPlayer.src = "";
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderInstruments();
+        });
+
+        filterTabs.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                currentFilter = e.target.dataset.category;
+                renderInstruments();
+            }
+        });
+
+        closeModal.addEventListener('click', closeInstrumentModal);
+        
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeInstrumentModal();
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeInstrumentModal();
+        });
+
+        // Initialize
+        renderInstruments();
+    </script>
+</body>
+</html>
